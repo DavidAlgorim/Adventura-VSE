@@ -29,8 +29,6 @@ public class Prostor {
         return top;
     }
 
-
-
     public double getLeft() {
         return left;
     }

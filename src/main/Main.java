@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
@@ -24,6 +25,10 @@ import uiText.TextoveRozhrani;
  * @author xzenj02
  */
 public class Main extends Application {
+
+    private TextArea centralText;
+    private IHra hra;
+    private TextField zadejPrikazTextArea;
 
     @Override
     public void start(Stage primaryStage) {
@@ -72,3 +77,4 @@ public class Main extends Application {
     }
 
 }
+
