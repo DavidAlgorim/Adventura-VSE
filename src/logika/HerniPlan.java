@@ -2,8 +2,11 @@ package logika;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import util.Observer;
 import util.ObserverZmenyProstoru;
 import util.SubjecZmenyProstoru;
+import util.Subject;
 
 
 /**
@@ -17,20 +20,19 @@ import util.SubjecZmenyProstoru;
  *@author     Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Alena Buchalcevova
  *@version    z kurzu 4IT101 pro školní rok 2014/2015
  */
-public class HerniPlan implements SubjecZmenyProstoru{
+public class HerniPlan implements Subject{
     
     private Prostor aktualniProstor;
     private Prostor viteznyProstor;
-    private List<ObserverZmenyProstoru> seznamObservers;
+    private List<Observer> listObserveru = new ArrayList<Observer>();
     
      /**
      *  Konstruktor který vytváří jednotlivé prostory a propojuje je pomocí východů.
      *  Jako výchozí aktuální prostor nastaví halu.
      */
     public HerniPlan() {
-        seznamObservers = new ArrayList<>();
+        listObserveru = new ArrayList<>();
         zalozProstoryHry();
-
     }
     
     /**
@@ -78,7 +80,7 @@ public class HerniPlan implements SubjecZmenyProstoru{
      */
     public void setAktualniProstor(Prostor prostor) {
        aktualniProstor = prostor;
-       upozorniPozorovatele();
+       notifyObservers();
     }
     /**
      *  Metoda vrací odkaz na vítězný prostor.
@@ -91,20 +93,19 @@ public class HerniPlan implements SubjecZmenyProstoru{
     }
 
     @Override
-    public void registraceObserver(ObserverZmenyProstoru observer) {
-        seznamObservers.add(observer);
+    public void registerObserver(Observer observer) {
+        listObserveru.add(observer);
     }
 
     @Override
-    public void odebraniObserver(ObserverZmenyProstoru observer) {
-        seznamObservers.remove(observer);
+    public void removeObserver(Observer observer) {
+        listObserveru.remove(observer);
     }
 
     @Override
-    public void upozorniPozorovatele() {
-        for (ObserverZmenyProstoru seznamObserver : seznamObservers) {
-            seznamObserver.aktualizuj();
+    public void notifyObservers() {
+        for (Observer observer1 : listObserveru){
+            observer1.update();
         }
     }
-
 }
