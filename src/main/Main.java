@@ -35,6 +35,9 @@ public class Main extends Application {
 
     private TextArea centralText;
     private IHra hra;
+
+
+
     private TextField zadejPrikazTextArea;
     private MenuLista menuLista;
 
@@ -100,6 +103,10 @@ public class Main extends Application {
 
     public TextArea getCentralText() {
         return centralText;
+    }
+
+    public void setHra(IHra hra) {
+        this.hra = hra;
     }
 
     /**
