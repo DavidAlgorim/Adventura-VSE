@@ -2,6 +2,7 @@
 package main;
 
 import GUI.Mapa;
+import GUI.MenuLista;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -35,13 +36,16 @@ public class Main extends Application {
     private TextArea centralText;
     private IHra hra;
     private TextField zadejPrikazTextArea;
+    private MenuLista menuLista;
 
     private Mapa Mapa;
+
 
     @Override
     public void start(Stage primaryStage) {
         hra = new Hra();
         Mapa = new Mapa(hra);
+        menuLista = new MenuLista(hra, this);
         BorderPane borderPane = new BorderPane();
 
 
@@ -82,12 +86,20 @@ public class Main extends Application {
 
         borderPane.setLeft(Mapa);
         borderPane.setBottom(dolniLista);
+        borderPane.setTop(menuLista);
         Scene scene = new Scene(borderPane, 750, 450);
         primaryStage.setTitle("Adventura");
 
         primaryStage.setScene(scene);
         primaryStage.show();
         zadejPrikazTextArea.requestFocus();
+    }
+    public GUI.Mapa getMapa() {
+        return Mapa;
+    }
+
+    public TextArea getCentralText() {
+        return centralText;
     }
 
     /**

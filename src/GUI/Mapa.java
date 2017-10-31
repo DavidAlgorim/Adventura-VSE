@@ -27,10 +27,17 @@ public class Mapa extends AnchorPane implements Observer {
 
         tecka = new Circle(10, Paint.valueOf("red"));
 
-        //this.setTopAnchor(tecka, 25.0);
-        //this.setLeftAnchor(tecka, 100.0);
+        this.setTopAnchor(tecka, 25.0);
+        this.setLeftAnchor(tecka, 100.0);
 
         this.getChildren().addAll(obrazekImageView, tecka);
+        update();
+    }
+
+    public void newGame (IHra novaHra){
+        Hra.getHerniPlan().removeObserver(this);
+        Hra = novaHra;
+        Hra.getHerniPlan().registerObserver(this);
         update();
     }
 
