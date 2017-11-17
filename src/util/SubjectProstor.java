@@ -1,8 +1,7 @@
 package util;
 
-public interface Subject {
-
-    void registerObserver(Observer observer);
-    void removeObserver(Observer observer);
+public interface SubjectProstor {
+    void registerObserver(ObserverProstor observer);
+    void removeObserver(ObserverProstor observer);
     void notifyObservers();
 }
