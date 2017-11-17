@@ -36,16 +36,17 @@ public class Main extends Application {
     private TextArea centralText;
     private IHra hra;
 
-
-
     private TextField zadejPrikazTextArea;
     private MenuLista menuLista;
 
     private Mapa Mapa;
 
+    private Stage Stage;
 
     @Override
     public void start(Stage primaryStage) {
+        Stage = primaryStage;
+
         hra = new Hra();
         Mapa = new Mapa(hra);
         menuLista = new MenuLista(hra, this);
@@ -107,6 +108,14 @@ public class Main extends Application {
 
     public void setHra(IHra hra) {
         this.hra = hra;
+    }
+
+    public javafx.stage.Stage getStage() {
+        return Stage;
+    }
+
+    public void enableTextField(){
+        zadejPrikazTextArea.setEditable(true);
     }
 
     /**
