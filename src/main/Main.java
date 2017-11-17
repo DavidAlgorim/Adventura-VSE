@@ -1,6 +1,7 @@
 
 package main;
 
+import GUI.Batoh;
 import GUI.Mapa;
 import GUI.MenuLista;
 import javafx.application.Application;
@@ -27,6 +28,8 @@ import javafx.stage.Stage;
 import logika.*;
 import uiText.TextoveRozhrani;
 
+import javax.swing.*;
+
 /**
  *
  * @author xzenj02
@@ -38,6 +41,7 @@ public class Main extends Application {
 
     private TextField zadejPrikazTextArea;
     private MenuLista menuLista;
+    private Batoh Batoh;
 
     private Mapa Mapa;
 
@@ -49,6 +53,7 @@ public class Main extends Application {
 
         hra = new Hra();
         Mapa = new Mapa(hra);
+        Batoh = new Batoh(hra.getBatoh());
         menuLista = new MenuLista(hra, this);
         BorderPane borderPane = new BorderPane();
 
@@ -89,6 +94,7 @@ public class Main extends Application {
         dolniLista.getChildren().addAll(zadejPrikaz,zadejPrikazTextArea);
 
         borderPane.setLeft(Mapa);
+        borderPane.setRight(Batoh);
         borderPane.setBottom(dolniLista);
         borderPane.setTop(menuLista);
         Scene scene = new Scene(borderPane, 750, 450);
@@ -101,6 +107,8 @@ public class Main extends Application {
     public GUI.Mapa getMapa() {
         return Mapa;
     }
+
+    public GUI.Batoh getBatoh() { return Batoh; }
 
     public TextArea getCentralText() {
         return centralText;

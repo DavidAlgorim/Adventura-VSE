@@ -2,6 +2,10 @@ package logika;
 
  
 
+import util.ObserverBatoh;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 /**
@@ -16,9 +20,12 @@ public class Batoh
 {
 public static final int KAPACITA = 3 ;
 private Map<String, Vec> seznamVeci ;   // seznam věcí v batohu
+private List<ObserverBatoh> listObserveru = new ArrayList<ObserverBatoh>();
+private String nazevVeci;
 
 public Batoh () {
-seznamVeci = new HashMap<String, Vec>();
+    seznamVeci = new HashMap<String, Vec>();
+    listObserveru = new ArrayList<>();
 }
  /**
      * Vloží věc do batohu
@@ -27,6 +34,8 @@ seznamVeci = new HashMap<String, Vec>();
      */
    public void vlozVec (Vec vec) {
      seznamVeci.put(vec.getJmeno(),vec);
+     nazevVeci = vec.getJmeno();
+     notifyObservers();
     }
      /**
      * Vrací řetězec názvů věcí, které jsou v batohu
@@ -56,6 +65,19 @@ seznamVeci = new HashMap<String, Vec>();
         return nalezenaVec;
     }
 
+    public void registerObserver(ObserverBatoh observer) {
+        listObserveru.add(observer);
+    }
+
+    public void removeObserver(ObserverBatoh observer) {
+        listObserveru.remove(observer);
+    }
+
+    public void notifyObservers() {
+        for (ObserverBatoh observer1 : listObserveru){
+            observer1.update(nazevVeci);
+        }
+    }
 }
 
 

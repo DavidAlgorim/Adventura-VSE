@@ -6,22 +6,18 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import logika.HerniPlan;
-import logika.Hra;
 import logika.IHra;
 import logika.Prostor;
 import main.Main;
-import util.Observer;
+import util.ObserverProstor;
 
-public class Mapa extends AnchorPane implements Observer {
+public class Mapa extends AnchorPane implements ObserverProstor {
 
     private IHra Hra;
     private Circle tecka;
-    private Prostor prostor;
-    private HerniPlan plan;
 
     public Mapa(IHra hra){
         Hra = hra;
-        plan = hra.getHerniPlan();
         hra.getHerniPlan().registerObserver(this);
         init();
     }

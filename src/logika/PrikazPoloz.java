@@ -47,6 +47,7 @@ private static final String NAZEV = "poloz";
         else {
 	     // vložíme věc do místnosti
 	        plan.getAktualniProstor().vlozVec(vec);
+	        batoh.notifyObservers();
             return "Položil jsi " + jmenoVeci;
         }
     }

@@ -3,10 +3,8 @@ package logika;
 import java.util.ArrayList;
 import java.util.List;
 
-import util.Observer;
-import util.ObserverZmenyProstoru;
-import util.SubjecZmenyProstoru;
-import util.Subject;
+import util.ObserverProstor;
+import util.SubjectProstor;
 
 
 /**
@@ -20,11 +18,11 @@ import util.Subject;
  *@author     Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Alena Buchalcevova
  *@version    z kurzu 4IT101 pro školní rok 2014/2015
  */
-public class HerniPlan implements Subject{
+public class HerniPlan implements SubjectProstor {
     
     private Prostor aktualniProstor;
     private Prostor viteznyProstor;
-    private List<Observer> listObserveru = new ArrayList<Observer>();
+    private List<ObserverProstor> listObserveru = new ArrayList<ObserverProstor>();
     
      /**
      *  Konstruktor který vytváří jednotlivé prostory a propojuje je pomocí východů.
@@ -93,18 +91,18 @@ public class HerniPlan implements Subject{
     }
 
     @Override
-    public void registerObserver(Observer observer) {
+    public void registerObserver(ObserverProstor observer) {
         listObserveru.add(observer);
     }
 
     @Override
-    public void removeObserver(Observer observer) {
+    public void removeObserver(ObserverProstor observer) {
         listObserveru.remove(observer);
     }
 
     @Override
     public void notifyObservers() {
-        for (Observer observer1 : listObserveru){
+        for (ObserverProstor observer1 : listObserveru){
             observer1.update();
         }
     }

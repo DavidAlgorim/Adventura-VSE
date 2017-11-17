@@ -1,6 +1,5 @@
 package util;
 
-public interface Observer {
-
+public interface ObserverProstor {
     void update();
 }

@@ -1,5 +1,7 @@
 package logika;
 
+import util.ObserverBatoh;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Set;
