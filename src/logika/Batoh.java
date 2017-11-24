@@ -64,15 +64,17 @@ public Batoh () {
         }   
         return nalezenaVec;
     }
-
+    /**
+     * Zaregistruje pozorovatele batohu
+     *
+     *@param  observer   registrovaný objekt
+     */
     public void registerObserver(ObserverBatoh observer) {
         listObserveru.add(observer);
     }
-
-    public void removeObserver(ObserverBatoh observer) {
-        listObserveru.remove(observer);
-    }
-
+    /**
+     * Aktualizuje pozorovatele batohu
+     */
     public void notifyObservers() {
         for (ObserverBatoh observer1 : listObserveru){
             observer1.update(nazevVeci);

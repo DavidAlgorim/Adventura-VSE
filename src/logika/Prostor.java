@@ -2,12 +2,8 @@ package logika;
 
 import util.ObserverBatoh;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Set;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.HashMap;
+import java.util.*;
+
 /**
  * Trida Prostor - popisuje jednotlivé prostory (místnosti) hry
  *
@@ -203,6 +199,22 @@ public class Prostor {
             	nazvy += jmenoVeci + " ";
         }
         return nazvy;
+    }
+    /**
+     * Vrací seznam věcí, které jsou v prostoru
+
+     *@return  arraylist věcí
+     */
+    public ArrayList<String> veciSeznam(){
+        ArrayList<String> veci = new ArrayList<>();
+        if (seznamVeci.size() != 0)
+        {
+            for (String jmenoVeci:seznamVeci.keySet())
+            {
+                veci.add(jmenoVeci);
+            }
+        }
+        return veci;
     }
      /**
      * Hledá věc daného jména a pokud je v prostoru a je přenositelná, tak ji vrátí a vymaže ze seznamu

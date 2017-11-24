@@ -36,7 +36,7 @@ import javax.swing.*;
  */
 public class Main extends Application {
 
-    private TextArea centralText;
+    public TextArea centralText;
     private IHra hra;
 
     private TextField zadejPrikazTextArea;
@@ -52,7 +52,7 @@ public class Main extends Application {
         Stage = primaryStage;
 
         hra = new Hra();
-        Mapa = new Mapa(hra);
+        Mapa = new Mapa(hra, this);
         Batoh = new Batoh(hra.getBatoh());
         menuLista = new MenuLista(hra, this);
         BorderPane borderPane = new BorderPane();

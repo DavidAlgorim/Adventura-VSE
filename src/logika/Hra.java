@@ -108,7 +108,11 @@ public class Hra implements IHra {
      public HerniPlan getHerniPlan(){
         return herniPlan;
      }
-
+    /**
+     *  Metoda vrátí odkaz na batoh, je využita hlavně v testech,
+     *
+     *  @return     odkaz na batoh
+     */
      public Batoh getBatoh(){
          return batoh;
      }

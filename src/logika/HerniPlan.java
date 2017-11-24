@@ -89,17 +89,27 @@ public class HerniPlan implements SubjectProstor {
     public Prostor getViteznyProstor() {
         return viteznyProstor;
     }
-
+    /**
+     * Zaregistruje pozorovatele plánu
+     *
+     *@param  observer   registrovaný objekt
+     */
     @Override
     public void registerObserver(ObserverProstor observer) {
         listObserveru.add(observer);
     }
-
+    /**
+     * Odstraní pozorovatele plánu
+     *
+     *@param  observer   registrovaný objekt
+     */
     @Override
     public void removeObserver(ObserverProstor observer) {
         listObserveru.remove(observer);
     }
-
+    /**
+     * Aktualizuje pozorovatele plánu
+     */
     @Override
     public void notifyObservers() {
         for (ObserverProstor observer1 : listObserveru){
