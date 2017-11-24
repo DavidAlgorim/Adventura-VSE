@@ -8,6 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import logika.IHra;
+import logika.Prostor;
 import main.Main;
 import util.ObserverProstor;
 import java.util.ArrayList;
@@ -64,7 +65,7 @@ public class Mapa extends AnchorPane implements ObserverProstor {
         this.setLeftAnchor(tecka, 100.0);
 
         this.getChildren().addAll(obrazekImageView, tecka);
-        update();
+        update(Hra.getHerniPlan().getAktualniProstor());
     }
     /**
      * Resetování pozice na mapě při spuštění nové hry
@@ -73,14 +74,14 @@ public class Mapa extends AnchorPane implements ObserverProstor {
         Hra.getHerniPlan().removeObserver(this);
         Hra = novaHra;
         Hra.getHerniPlan().registerObserver(this);
-        update();
+        update(Hra.getHerniPlan().getAktualniProstor());
     }
 
     /**
      * Aktualizování pozice na mapě a věcí v místnosti
      */
     @Override
-    public void update() {
+    public void update(Prostor prostor) {
         veci = Hra.getHerniPlan().getAktualniProstor().veciSeznam();
         this.getChildren().removeAll(maliny, strom);
         for (String vec: veci)

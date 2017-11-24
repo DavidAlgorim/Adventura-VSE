@@ -25,7 +25,6 @@ private String nazevVeci;
 
 public Batoh () {
     seznamVeci = new HashMap<String, Vec>();
-    listObserveru = new ArrayList<>();
 }
  /**
      * Vloží věc do batohu

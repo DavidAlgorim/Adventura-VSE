@@ -113,7 +113,7 @@ public class HerniPlan implements SubjectProstor {
     @Override
     public void notifyObservers() {
         for (ObserverProstor observer1 : listObserveru){
-            observer1.update();
+            observer1.update(aktualniProstor);
         }
     }
 }

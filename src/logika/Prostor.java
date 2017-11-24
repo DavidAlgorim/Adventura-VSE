@@ -1,7 +1,5 @@
 package logika;
 
-import util.ObserverBatoh;
-
 import java.util.*;
 
 /**
@@ -145,6 +143,19 @@ public class Prostor {
             vracenyText += " " + sousedni.getNazev();
         }
         return vracenyText;
+    }
+    /**
+     * Vrací seznam sousedních prostorů
+
+     *@return  arraylist sousedních prostorů
+     */
+    public ArrayList<String> okoliSeznam(){
+        ArrayList<String> okoli = new ArrayList<>();
+        for (Prostor sousedi:vychody)
+        {
+            okoli.add(sousedi.getNazev());
+        }
+        return okoli;
     }
 
     /**

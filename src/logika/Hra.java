@@ -1,5 +1,7 @@
 package logika;
 
+import GUI.OkolniProstory;
+
 /**
  *  Třída Hra - třída představující logiku adventury.
  * 
@@ -16,7 +18,8 @@ public class Hra implements IHra {
     private SeznamPrikazu platnePrikazy;    // obsahuje seznam přípustných příkazů
     private HerniPlan herniPlan;
     private boolean konecHry = false;
-    private Batoh batoh ;
+    private Batoh batoh;
+    private Prostor prostor;
 
     /**
      *  Vytváří hru a inicializuje místnosti (prostřednictvím třídy HerniPlan) a seznam platných příkazů.

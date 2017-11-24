@@ -1,5 +1,7 @@
 package logika;
 
+import GUI.OkolniProstory;
+
 /**
  *  Třída PrikazJdi implementuje pro hru příkaz jdi.
  *  Tato třída je součástí jednoduché textové hry.

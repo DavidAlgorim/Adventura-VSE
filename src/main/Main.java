@@ -4,9 +4,11 @@ package main;
 import GUI.Batoh;
 import GUI.Mapa;
 import GUI.MenuLista;
+import GUI.OkolniProstory;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -42,6 +44,7 @@ public class Main extends Application {
     private TextField zadejPrikazTextArea;
     private MenuLista menuLista;
     private Batoh Batoh;
+    private OkolniProstory OkolniProstory;
 
     private Mapa Mapa;
 
@@ -54,8 +57,12 @@ public class Main extends Application {
         hra = new Hra();
         Mapa = new Mapa(hra, this);
         Batoh = new Batoh(hra.getBatoh());
+        OkolniProstory = new OkolniProstory(hra);
         menuLista = new MenuLista(hra, this);
         BorderPane borderPane = new BorderPane();
+        FlowPane flowPane = new FlowPane();
+        flowPane.setPrefWidth(100.0);
+        flowPane.setOrientation(Orientation.VERTICAL);
 
 
         centralText = new TextArea();
@@ -93,11 +100,12 @@ public class Main extends Application {
         dolniLista.setAlignment(Pos.CENTER);
         dolniLista.getChildren().addAll(zadejPrikaz,zadejPrikazTextArea);
 
+        flowPane.getChildren().addAll(Batoh, OkolniProstory);
         borderPane.setLeft(Mapa);
-        borderPane.setRight(Batoh);
+        borderPane.setRight(flowPane);
         borderPane.setBottom(dolniLista);
         borderPane.setTop(menuLista);
-        Scene scene = new Scene(borderPane, 750, 450);
+        Scene scene = new Scene(borderPane, 950, 450);
         primaryStage.setTitle("Adventura");
 
         primaryStage.setScene(scene);
