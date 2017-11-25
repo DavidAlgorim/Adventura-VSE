@@ -40,14 +40,11 @@ public class Main extends Application {
 
     public TextArea centralText;
     private IHra hra;
-
     private TextField zadejPrikazTextArea;
     private MenuLista menuLista;
     private Batoh Batoh;
     private OkolniProstory OkolniProstory;
-
     private Mapa Mapa;
-
     private Stage Stage;
 
     @Override
@@ -57,7 +54,7 @@ public class Main extends Application {
         hra = new Hra();
         Mapa = new Mapa(hra, this);
         Batoh = new Batoh(hra.getBatoh());
-        OkolniProstory = new OkolniProstory(hra);
+        OkolniProstory = new OkolniProstory(hra, this);
         menuLista = new MenuLista(hra, this);
         BorderPane borderPane = new BorderPane();
         FlowPane flowPane = new FlowPane();
@@ -93,14 +90,11 @@ public class Main extends Application {
                 }
             }
         });
-
-
-
         FlowPane dolniLista = new FlowPane();
         dolniLista.setAlignment(Pos.CENTER);
         dolniLista.getChildren().addAll(zadejPrikaz,zadejPrikazTextArea);
 
-        flowPane.getChildren().addAll(Batoh, OkolniProstory);
+        flowPane.getChildren().addAll(OkolniProstory, Batoh);
         borderPane.setLeft(Mapa);
         borderPane.setRight(flowPane);
         borderPane.setBottom(dolniLista);

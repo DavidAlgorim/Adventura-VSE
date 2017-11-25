@@ -3,6 +3,7 @@ package logika;
  
 
 import util.ObserverBatoh;
+import util.SubjektBatoh;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.HashMap;
  *@version    z kurzu 4IT101 pro školní rok 2014/2015
  */
 
-public class Batoh
+public class Batoh implements SubjektBatoh
 {
 public static final int KAPACITA = 3 ;
 private Map<String, Vec> seznamVeci ;   // seznam věcí v batohu
@@ -71,6 +72,7 @@ public Batoh () {
     public void registerObserver(ObserverBatoh observer) {
         listObserveru.add(observer);
     }
+
     /**
      * Aktualizuje pozorovatele batohu
      */

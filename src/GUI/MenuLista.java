@@ -15,18 +15,27 @@ import javafx.stage.Stage;
 import logika.Hra;
 import logika.IHra;
 import main.Main;
+/**
+ *  Class MenuLista - třída spravuje horní lištu
+ *
+ *@author     David Voráček
+ */
 
 public class MenuLista extends MenuBar {
 
     private IHra Hra;
     private Main Main;
-
+    /**
+     *  Konstruktor, který vytváří panel okolních prostor
+     */
     public MenuLista(IHra hra, Main main){
         Hra = hra;
         Main = main;
         init();
     }
-
+    /**
+     * init inicializuje komponenty okolních prostor
+     */
     private void init(){
         Menu novySoubor = new Menu("Adventura");
         MenuItem novaHra = new Menu("Nová hra");//, new ImageView(new Image(Main.class.getResourceAsStream("/zdroje/ikona.png"))));
