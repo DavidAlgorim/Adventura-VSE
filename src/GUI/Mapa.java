@@ -25,7 +25,6 @@ public class Mapa extends AnchorPane implements ObserverProstor {
     private Main Main;
     private Circle tecka;
     private ArrayList<String> veci;
-    private String vecis;
     private ImageView maliny;
     private ImageView strom;
 
@@ -47,7 +46,7 @@ public class Mapa extends AnchorPane implements ObserverProstor {
 
         tecka = new Circle(10, Paint.valueOf("red"));
         maliny = new ImageView(new Image(Main.class.getResourceAsStream("/zdroje/maliny.jpg"),50,50,false,true));
-        strom = new ImageView(new Image(Main.class.getResourceAsStream("/zdroje/strom.JPG"),50,50,false,true));
+        strom = new ImageView(new Image(Main.class.getResourceAsStream("/zdroje/strom.jpg"),50,50,false,true));
         maliny.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
